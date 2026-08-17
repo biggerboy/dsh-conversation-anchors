@@ -1,0 +1,53 @@
+{
+  "name": "@biggerboy123/dsh-conversation-anchors",
+  "version": "0.1.0",
+  "description": "Sidebar conversation anchor navigation for the DeepSeek Harness web GUI: per-turn anchors with click-to-scroll, injected into the sidebar as a DOM-level extension.",
+  "type": "module",
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "conversation",
+    "anchors",
+    "navigation",
+    "outline",
+    "web-gui"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime"
+      ],
+      "platform": "web"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-client-runtime": "^0.1.0-rc.6"
+  },
+  "author": "biggerboy123",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
