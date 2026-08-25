@@ -1,6 +1,8 @@
 # @biggerboy123/dsh-conversation-anchors
 
-会话锚点导航插件 —— 为 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（DSH）Web GUI 在对话内容区左侧提供 Codex 风格的短横线锚点：当前会话每一轮用户提问对应一条短横线，悬停预览、点击即可平滑滚动定位。
+Codex-style conversation tick-rail for the [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) Web GUI.
+
+会话锚点导航插件 —— 在对话内容区左侧为当前会话每一轮用户提问画一条短横线：悬停预览、点击即可平滑滚动定位。
 
 纯浏览器端插件，以树外（out-of-tree）bundle 的形式安装，不修改 DSH 源码。host 半部分为无操作占位，全部行为在浏览器半部分（`./client`）实现。
 
