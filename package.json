@@ -1,6 +1,6 @@
 {
   "name": "@biggerboy123/dsh-conversation-anchors",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Codex-style tick-rail and thinking-process fold for the DeepSeek Harness web GUI: per-turn dashes, hover preview, click-to-scroll, eager history load, and collapsed Think/tool rows.",
   "type": "module",
   "engines": {

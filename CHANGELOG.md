@@ -2,6 +2,12 @@
 
 本文件记录已发布到 npm 的版本。格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/)，版本号遵循 [SemVer](https://semver.org/lang/zh-CN/)。
 
+## [0.1.9] - 2026-08-25
+
+### 修复
+
+- `lib/client.js` 的 `__ModuleLoader__.load` 注册 id 改为完整 npm 包名 `@biggerboy123/dsh-conversation-anchors`，与 `cordis.patch.yml` 的 `name` 对齐。0.1.8 只改了 YAML，浏览器半边仍注册无 scope 的 `dsh-conversation-anchors`，启动 Web 会报 `loaded without registering "@biggerboy123/dsh-conversation-anchors"`。
+
 ## [0.1.8] - 2026-08-25
 
 ### 修复
@@ -43,6 +49,7 @@
 - 跟随当前会话快照实时刷新；切换会话即切换锚点列表。
 - 仅 Web GUI（`platform: "web"`），host 半边无操作占位，行为全部在浏览器半边。
 
+[0.1.9]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.9
 [0.1.8]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.8
 [0.1.7]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.7
 [0.1.1]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.1
