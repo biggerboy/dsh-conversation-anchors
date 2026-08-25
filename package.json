@@ -1,6 +1,6 @@
 {
   "name": "@biggerboy123/dsh-conversation-anchors",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Sidebar conversation anchor navigation for the DeepSeek Harness web GUI: per-turn anchors with click-to-scroll, injected into the sidebar as a DOM-level extension.",
   "type": "module",
   "engines": {
