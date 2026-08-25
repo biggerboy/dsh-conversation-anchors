@@ -1,7 +1,7 @@
 {
   "name": "@biggerboy123/dsh-conversation-anchors",
-  "version": "0.1.1",
-  "description": "Sidebar conversation anchor navigation for the DeepSeek Harness web GUI: per-turn anchors with click-to-scroll, injected into the sidebar as a DOM-level extension.",
+  "version": "0.1.7",
+  "description": "Codex-style conversation tick-rail for the DeepSeek Harness web GUI: per-turn dashes with hover preview, click-to-scroll, and eager history load.",
   "type": "module",
   "engines": {
     "node": "^22.19.0 || >=24.0.0"
@@ -47,6 +47,14 @@
   },
   "author": "biggerboy123",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/biggerboy/dsh-conversation-anchors.git"
+  },
+  "homepage": "https://github.com/biggerboy/dsh-conversation-anchors#readme",
+  "bugs": {
+    "url": "https://github.com/biggerboy/dsh-conversation-anchors/issues"
+  },
   "publishConfig": {
     "access": "public"
   }
