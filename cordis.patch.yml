@@ -4,4 +4,4 @@
 # injects the conversation-pane anchor list and click-to-scroll navigation.
 - insert:
     - id: conversation-anchors
-      name: 'dsh-conversation-anchors'
+      name: '@biggerboy123/dsh-conversation-anchors'

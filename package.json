@@ -1,6 +1,6 @@
 {
   "name": "@biggerboy123/dsh-conversation-anchors",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Codex-style conversation tick-rail for the DeepSeek Harness web GUI: per-turn dashes with hover preview, click-to-scroll, and eager history load.",
   "type": "module",
   "engines": {
