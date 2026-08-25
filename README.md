@@ -6,6 +6,12 @@ Codex-style conversation tick-rail for the [DeepSeek Harness](https://github.com
 
 纯浏览器端插件，以树外（out-of-tree）bundle 的形式安装，不修改 DSH 源码。host 半部分为无操作占位，全部行为在浏览器半部分（`./client`）实现。
 
+## 预览
+
+![对话区左侧短横线锚点与悬停预览](assets/image.png)
+
+![悬停时横线起伏与预览卡片](assets/anchors-wave1.png)
+
 ## 名称对照
 
 GitHub 仓库 owner 和 npm 包 scope **不是同一个字符串**，安装时不要混用：
