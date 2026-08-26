@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+## [0.1.10] - 2026-08-26
+
 ### 新增
 
 - 发版前校验 `package.json` 的 `name`、`cordis.patch.yml` 的 `name`、`__ModuleLoader__.load` 的 `id` 三者一致，并核对 `PLUGIN_VERSION` 与包版本。`npm publish` 会走 `prepublishOnly`，对不上直接失败。
@@ -65,7 +67,8 @@
 - 跟随当前会话快照实时刷新；切换会话即切换锚点列表。
 - 仅 Web GUI（`platform: "web"`），host 半边无操作占位，行为全部在浏览器半边。
 
-[Unreleased]: https://github.com/biggerboy/dsh-conversation-anchors/compare/v0.1.9...HEAD
+[Unreleased]: https://github.com/biggerboy/dsh-conversation-anchors/compare/v0.1.10...HEAD
+[0.1.10]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.10
 [0.1.9]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.9
 [0.1.8]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.8
 [0.1.7]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.7
