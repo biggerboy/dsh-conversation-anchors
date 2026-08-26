@@ -5,7 +5,7 @@ Codex-style conversation tick-rail **and thinking-process fold** for the [DeepSe
 会话阅读插件，两块能力：
 
 1. **左侧短横线轨**：为当前会话每一轮用户提问画一条短横线，悬停预览、点击平滑滚动定位。
-2. **思考过程折叠**：回合结束后把 Think 与工具调用收成一行披露，正在生成时保持展开。
+2. **思考过程折叠**：回合结束后把 Think、工具调用和最终回复之前的过程叙述收成一行披露，正在生成时保持展开。
 
 纯浏览器端插件，以树外（out-of-tree）bundle 的形式安装，不修改 DSH 源码。host 半部分为无操作占位，全部行为在浏览器半部分（`./client`）实现。
 
@@ -40,7 +40,7 @@ GitHub 仓库 owner 和 npm 包 scope **不是同一个字符串**，安装时�
 
 **阅读**
 
-- **思考过程折叠**：回合结束后把 Think 与工具调用收成「思考过程 · N 步」一行；点击展开/收起。正在生成的回合不折叠
+- **思考过程折叠**：回合结束后把 Think、工具调用和最终回复之前的过程叙述收成「思考过程 · N 步」一行；点击展开/收起。正在生成的回合不折叠
 - **该藏的时候藏**：轨迹标签、首页 hero、空会话下隐藏横线轨；轨迹页也不插入思考过程折叠条
 
 **其它**
@@ -87,16 +87,16 @@ dsh plugin --profile web add github:biggerboy/dsh-conversation-anchors#master
 - 左侧短横线对应每一轮用户提问；当前可见轮次的横线更长
 - 悬停查看该轮问题与回复摘要，点击滚动到对应消息
 - 鼠标在横线轨上，或 Tab 到轨以后：方向键 / `j` `k` 跳转，`Home` / `End` 到首尾
-- 每轮回复结束后，思考过程与工具调用会收成「思考过程 · N 步」；点击可展开/收起。正在生成的回合保持展开
+- 每轮回复结束后，Think、工具调用和最终回复之前的过程叙述会收成「思考过程 · N 步」；点击可展开/收起。正在生成的回合保持展开
 - 无会话、空会话、首页或切到「轨迹」时，横线轨自动隐藏
 
 ## 工作原理
 
 1. 通过 `ctx.sessions` 服务读取当前会话的 `ConversationSnapshot`
-2. 遍历 `snapshot.chat.order`，每个可见 `user` 节点生成一条横线，后续第一条有正文的 `assistant-step` 作为预览
+2. 遍历 `snapshot.chat.order`，每个可见 `user` 节点生成一条横线，后续最后一条有正文的 `assistant-step` 作为预览
 3. 点击时定位到 chat 视图渲染的 `[data-chat-anchor-key]` DOM 行，`scrollIntoView` 平滑滚动
 4. 会话 `open` 之后循环 `session.loadOlder()`（每页 50 条消息，最多 80 页），让 `hasMore` 变为 false，ChatView 不再渲染「加载更早」
-5. 思考过程折叠观察对话列 DOM：按用户消息切回合，把已结束回合里的 Think / 工具调用卡片藏到一行披露后面
+5. 思考过程折叠观察对话列 DOM：按用户消息切回合，把已结束回合里的 Think、工具调用、以及最终回复之前的过程叙述藏到一行披露后面
 
 变更记录见 [CHANGELOG.md](./CHANGELOG.md)。
 
