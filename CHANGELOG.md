@@ -2,6 +2,22 @@
 
 本文件记录已发布到 npm 的版本。格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/)，版本号遵循 [SemVer](https://semver.org/lang/zh-CN/)。
 
+## [Unreleased]
+
+### 新增
+
+- 发版前校验 `package.json` 的 `name`、`cordis.patch.yml` 的 `name`、`__ModuleLoader__.load` 的 `id` 三者一致，并核对 `PLUGIN_VERSION` 与包版本。`npm publish` 会走 `prepublishOnly`，对不上直接失败。
+- 键盘跳转：焦点在横线轨或鼠标停在轨上时，方向键 / `j` `k` 跳到相邻轮次，`Home` / `End` 到两端；输入框内不响应。
+- 拉齐历史时在轨旁显示进度（`正在拉齐历史… n/80`）；达到 80 页上限时提示后自动消失。
+
+### 修复
+
+- 自动拉齐历史若中途停住，不再把「加载更早」藏死。否则窗口从半截回合开始，第一条用户消息和对应横线都会消失。滚到顶部时若还有更早分页会继续拉取。
+
+### 变更
+
+- 思考过程折叠箭头改为与 DSH 自带 Think 披露相同的 14px 线框 chevron（收起朝下，展开旋转朝上），紧跟「思考过程 · N 步」排布，不再右对齐。
+
 ## [0.1.9] - 2026-08-25
 
 ### 修复
@@ -49,6 +65,7 @@
 - 跟随当前会话快照实时刷新；切换会话即切换锚点列表。
 - 仅 Web GUI（`platform: "web"`），host 半边无操作占位，行为全部在浏览器半边。
 
+[Unreleased]: https://github.com/biggerboy/dsh-conversation-anchors/compare/v0.1.9...HEAD
 [0.1.9]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.9
 [0.1.8]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.8
 [0.1.7]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.7

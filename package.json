@@ -16,6 +16,10 @@
     },
     "./package.json": "./package.json"
   },
+  "scripts": {
+    "check": "node scripts/check-bundle-id.mjs",
+    "prepublishOnly": "node scripts/check-bundle-id.mjs"
+  },
   "files": [
     "lib",
     "cordis.patch.yml",
