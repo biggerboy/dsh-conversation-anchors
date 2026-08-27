@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+## [0.1.12] - 2026-08-27
+
+### 修复
+
+- 点击横线改为滚动对话列自己的 `[data-conversation-scroll]`。此前 `scrollIntoView` 在外层 `overflow: hidden` 下经常滚不到，看起来像没跳转。
+
 ## [0.1.11] - 2026-08-27
 
 ### 新增
@@ -86,7 +92,8 @@
 - 跟随当前会话快照实时刷新；切换会话即切换锚点列表。
 - 仅 Web GUI（`platform: "web"`），host 半边无操作占位，行为全部在浏览器半边。
 
-[Unreleased]: https://github.com/biggerboy/dsh-conversation-anchors/compare/v0.1.11...HEAD
+[Unreleased]: https://github.com/biggerboy/dsh-conversation-anchors/compare/v0.1.12...HEAD
+[0.1.12]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.12
 [0.1.11]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.11
 [0.1.10]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.10
 [0.1.9]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.9
