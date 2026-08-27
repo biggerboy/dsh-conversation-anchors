@@ -4,6 +4,23 @@
 
 ## [Unreleased]
 
+## [0.1.11] - 2026-08-27
+
+### 新增
+
+- 锚点风格可在 **设置 → 通用** 里选择，默认仍是 Codex 左侧轨。DeepSeek 右侧等长蓝横线是可选项，改完立刻换轨，不用重启（[#3](https://github.com/biggerboy/dsh-conversation-anchors/issues/3)）。
+
+### 变更
+
+- DeepSeek 右侧轨：悬停某一行时标题和短线加深；浏览器原生 title 提示去掉。标题被截断时，停约 0.8 秒才弹出完整标题（黑底白字），未截断的不弹。
+- 设置里的锚点风格下拉改为与「语言 / 权限」相同的弹出层：打开后触发器仍是浅色圆角，菜单白底圆角阴影，不再用系统原生 select 的黑框灰底。
+
+### 修复
+
+- DeepSeek 右侧轨在刷新、刚加载、或悬停展开标题时，当前轮次会标成蓝色。此前 scroll-spy 常打到助手回复节点（轨上只有用户提问），或在轨挂上之前就跑过一遍，结果所有横线都保持灰色。
+- 标当前条时不再在 MutationObserver 里反复写 `aria-selected`。该属性本来就在观察名单里，会把自己再次叫醒，把标签页卡死。
+- host 半边不再静态 import `@deepseek-ai/dsh-settings` / `schemastery`。`link:` 检出在 DSH 的 `node_modules` 树外，静态 import 会让 `dsh web` 直接起不来；改为从当前 profile / 正在跑的 `dsh` CLI 解析。
+
 ## [0.1.10] - 2026-08-26
 
 ### 新增
@@ -69,7 +86,8 @@
 - 跟随当前会话快照实时刷新；切换会话即切换锚点列表。
 - 仅 Web GUI（`platform: "web"`），host 半边无操作占位，行为全部在浏览器半边。
 
-[Unreleased]: https://github.com/biggerboy/dsh-conversation-anchors/compare/v0.1.10...HEAD
+[Unreleased]: https://github.com/biggerboy/dsh-conversation-anchors/compare/v0.1.11...HEAD
+[0.1.11]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.11
 [0.1.10]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.10
 [0.1.9]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.9
 [0.1.8]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.8

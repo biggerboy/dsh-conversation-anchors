@@ -1,7 +1,8 @@
 # dsh-conversation-anchors bundle patch: inserts the anchor-nav plugin row
-# into the web profile roster. The node half (exports ".") is a no-op host
-# plugin; the browser half (exports "./client", declared via dsh.client)
-# injects the conversation-pane anchor list and click-to-scroll navigation.
+# into the web profile roster. The node half (exports ".") registers the
+# conversation-anchors settings namespace; the browser half (exports
+# "./client", declared via dsh.client) injects the conversation-pane tick
+# rail, click-to-scroll navigation, and the General settings row.
 - insert:
     - id: conversation-anchors
       name: '@biggerboy123/dsh-conversation-anchors'

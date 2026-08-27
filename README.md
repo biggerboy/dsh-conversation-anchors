@@ -1,15 +1,17 @@
 # @biggerboy123/dsh-conversation-anchors
 
-Codex-style conversation tick-rail **and thinking-process fold** for the [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) Web GUI.
+Codex 风格的**左侧**会话锚点轨（默认），以及思考过程折叠，用于 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) Web GUI。DeepSeek 网页聊天那种右侧轨可以在设置里打开，不是默认。
 
 会话阅读插件，两块能力：
 
-1. **左侧短横线轨**：为当前会话每一轮用户提问画一条短横线，悬停预览、点击平滑滚动定位。
+1. **短横线轨**：为当前会话每一轮用户提问画一条短横线，点击平滑滚动定位。默认是 Codex 左侧轨（当前条更长更深，悬停菱形起伏 + 浮动预览卡片）。
 2. **思考过程折叠**：回合结束后把 Think、工具调用和最终回复之前的过程叙述收成一行披露，正在生成时保持展开。
 
-纯浏览器端插件，以树外（out-of-tree）bundle 的形式安装，不修改 DSH 源码。host 半部分为无操作占位，全部行为在浏览器半部分（`./client`）实现。
+纯浏览器端插件，以树外（out-of-tree）bundle 的形式安装，不修改 DSH 源码。host 半部分只注册设置项，全部界面行为在浏览器半部分（`./client`）实现。
 
 ## 预览
+
+默认 Codex 左侧轨：
 
 ![对话区左侧短横线锚点与悬停预览](assets/image.png)
 
@@ -30,9 +32,9 @@ GitHub 仓库 owner 和 npm 包 scope **不是同一个字符串**，安装时�
 
 **导航**
 
-- **Codex 风格横线轨**：内容区左侧 gutter 一列浅灰短横线，当前滚动位置那条更长、更深；深色模式悬停横线为白色，预览卡片用略亮的深灰底（scroll-spy）
-- **悬停起伏**：鼠标在横线上滑动时，指针处最长最深，邻近短线按距离逐渐缩短，形成菱形起伏；键盘聚焦同一条也会起伏
-- **悬停预览**：浮动卡片展示该轮问题与回复摘要（无正文时显示工具名或「图片」）
+- **锚点轨（默认 Codex）**：内容区左侧一列浅灰短横线，当前滚动位置那条更长、更深（scroll-spy）
+- **悬停预览**：鼠标停在横线上时，邻近短线按距离缩短形成菱形起伏；右侧弹出浮动卡片（问题 + 回复摘要）
+- **可选 DeepSeek 右侧轨**：设置 → 通用 → 锚点风格，选「DeepSeek（右侧）」后改为内容区右侧等长横线，当前条品牌蓝，悬停向左展开标题。截断标题停约 0.8 秒才弹出完整内容（黑底白字）；未截断不弹。改完立刻生效，不用重启
 - **点击定位**：点击锚点平滑滚动到 `[data-chat-anchor-key]` 对应行，落地后短横线闪光
 - **键盘跳转**：焦点在横线轨上，或鼠标停在轨上时，`↑`/`↓` 或 `j`/`k` 跳到上一/下一轮，`Home`/`End` 到两端（输入框内不抢键）
 - **一次拉齐历史**：打开会话后循环调用 `session.loadOlder()`，直到没有更早的分页，锚点一次出齐；同时隐藏对话区「加载更早」按钮。拉取过程中轨旁显示「正在拉齐历史… n/80」
@@ -66,7 +68,7 @@ dsh plugin --profile web add @biggerboy123/dsh-conversation-anchors
 ✕ missing peer @deepseek-ai/dsh-client-runtime  Wanted: ^0.1.0-rc.6
 ```
 
-这是 **良性告警，不是安装失败**。该 peer 由 DSH Web 自己提供，profile 里 hoisted 的 `node_modules` 运行时能解析到。只要命令 **退出码为 0**，就可以继续：重启 `dsh web`，打开任意会话即可在对话区左侧看到短横线锚点。
+这是 **良性告警，不是安装失败**。该 peer 由 DSH Web 自己提供，profile 里 hoisted 的 `node_modules` 运行时能解析到。只要命令 **退出码为 0**，就可以继续：重启 `dsh web`，打开任意会话即可在对话区**左侧**看到短横线锚点。
 
 ### 从 Git 仓库安装（npm 不通时）
 
@@ -84,8 +86,8 @@ dsh plugin --profile web add github:biggerboy/dsh-conversation-anchors#master
 
 ## 使用
 
-- 左侧短横线对应每一轮用户提问；当前可见轮次的横线更长
-- 悬停查看该轮问题与回复摘要，点击滚动到对应消息
+- 默认（Codex）：左侧短横线对应每一轮用户提问；当前可见轮次更长更深。悬停看预览卡片，点击滚动到对应消息
+- 若更习惯 DeepSeek 网页聊天的右侧轨：打开 **设置 → 通用**，在「锚点风格」里选「DeepSeek（右侧）」。切换立即生效。悬停某一行时标题和短线加深；只有被截断的标题才会弹出完整内容
 - 鼠标在横线轨上，或 Tab 到轨以后：方向键 / `j` `k` 跳转，`Home` / `End` 到首尾
 - 每轮回复结束后，Think、工具调用和最终回复之前的过程叙述会收成「思考过程 · N 步」；点击可展开/收起。正在生成的回合保持展开
 - 无会话、空会话、首页或切到「轨迹」时，横线轨自动隐藏
@@ -93,10 +95,11 @@ dsh plugin --profile web add github:biggerboy/dsh-conversation-anchors#master
 ## 工作原理
 
 1. 通过 `ctx.sessions` 服务读取当前会话的 `ConversationSnapshot`
-2. 遍历 `snapshot.chat.order`，每个可见 `user` 节点生成一条横线，后续最后一条有正文的 `assistant-step` 作为预览
+2. 遍历 `snapshot.chat.order`，每个可见 `user` 节点生成一条横线；Codex 悬停卡片展示问题与回复摘要，DeepSeek 悬停面板展示用户问题标题
 3. 点击时定位到 chat 视图渲染的 `[data-chat-anchor-key]` DOM 行，`scrollIntoView` 平滑滚动
 4. 会话 `open` 之后循环 `session.loadOlder()`（每页 50 条消息，最多 80 页），让 `hasMore` 变为 false，ChatView 不再渲染「加载更早」
 5. 思考过程折叠观察对话列 DOM：按用户消息切回合，把已结束回合里的 Think、工具调用、以及最终回复之前的过程叙述藏到一行披露后面
+6. 轨风格写入 Host 用户设置文档的 `conversation-anchors.style`（`codex` | `deepseek`，默认 `codex`），浏览器半边订阅后立刻换轨
 
 变更记录见 [CHANGELOG.md](./CHANGELOG.md)。
 
