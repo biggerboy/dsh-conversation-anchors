@@ -4,6 +4,18 @@
 
 ## [Unreleased]
 
+## [0.1.13] - 2026-08-27
+
+### 变更
+
+- DeepSeek 右侧轨改为固定高度卡片（最多 300px），轮次多了在卡片内滚动，不再铺满整列。当前选中项会自动滚进可视区。
+- 悬停展开标题面板：圆角加大；短线改为胶囊圆角；未悬停不画滚动条，悬停时在短线右侧显示 6px 浅色细滑块（不用系统滚动条，避免挤走短线）。卡片与页面右缘留出间距。
+- 点击锚点后鼠标离开列表即收起面板，不必再点别处。
+
+### 修复
+
+- 滚到会话末尾且最后一轮撑不满一屏时，选中最后一条锚点。此前 scroll-spy 只认视口顶部，点最后一条也会被立刻改回去。
+
 ## [0.1.12] - 2026-08-27
 
 ### 修复
@@ -92,7 +104,8 @@
 - 跟随当前会话快照实时刷新；切换会话即切换锚点列表。
 - 仅 Web GUI（`platform: "web"`），host 半边无操作占位，行为全部在浏览器半边。
 
-[Unreleased]: https://github.com/biggerboy/dsh-conversation-anchors/compare/v0.1.12...HEAD
+[Unreleased]: https://github.com/biggerboy/dsh-conversation-anchors/compare/v0.1.13...HEAD
+[0.1.13]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.13
 [0.1.12]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.12
 [0.1.11]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.11
 [0.1.10]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.10
