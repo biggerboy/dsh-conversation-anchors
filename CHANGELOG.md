@@ -4,13 +4,19 @@
 
 ## [Unreleased]
 
+## [0.1.17] - 2026-09-02
+
+### 修复
+
+- **DeepSeek 槽位上限**：由对话区高度 10% 调整为 **30%**，轮次多时卡片更实用。
+
 ## [0.1.16] - 2026-09-02
 
 ### 修复
 
 - **DeepSeek 第一个 tick / 标题偏淡**：与 Codex 同源——首轮误标 `unloaded`；DeepSeek 改为 tick 同宽仅降透明度，未加载标题用 tertiary 色；并增强 chat 索引回退与首帧后 reconcile。
 - **流式回复时 active 闪烁**：贴底或会话 `running` 时锁定最后一轮 active（对齐官方）；`syncActive` 去重；chat 更新改为增量 patch 轨，不再每个 token 重建 DOM。
-- **轨高按比例自适应**：DeepSeek 槽位上限为对话区高度的 **10%**；Codex 为 **70%** 并垂直居中（不再写死 300px，也不随内容铺满整列）。
+- **轨高按比例自适应**：DeepSeek 槽位上限为对话区高度的 **30%**；Codex 为 **70%** 并垂直居中（不再写死 300px，也不随内容铺满整列）。
 - **Codex 悬停箭头**：tick 超出槽位时，鼠标悬停在轨上才在顶部/底部显示箭头；点击选中上一/下一条横条并跳转（不是翻页滚动）。
 - **Codex tick 被压扁**：槽位变矮时 flex 子项默认收缩，导致十几轮挤在一小块且不出箭头；tick 改为 `flex: none`，超出后滚动并出现箭头。
 - **Codex 箭头样式**：箭头移到轨外约 28px（远离 tick 列）；悬停箭头时显示浅灰圆形背景。
@@ -148,7 +154,8 @@
 - 跟随当前会话快照实时刷新；切换会话即切换锚点列表。
 - 仅 Web GUI（`platform: "web"`），host 半边无操作占位，行为全部在浏览器半边。
 
-[Unreleased]: https://github.com/biggerboy/dsh-conversation-anchors/compare/v0.1.16...HEAD
+[Unreleased]: https://github.com/biggerboy/dsh-conversation-anchors/compare/v0.1.17...HEAD
+[0.1.17]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.17
 [0.1.16]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.16
 [0.1.15]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.15
 [0.1.13]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.13
