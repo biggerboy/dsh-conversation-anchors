@@ -17,6 +17,9 @@ Codex 风格的**左侧**会话锚点轨（默认），以及（旧版 DSH 上�
 
 ![悬停时横线起伏与预览卡片](assets/anchors-wave1.png)
 
+设置面板切换：
+<img width="2735" height="1911" alt="image" src="https://github.com/user-attachments/assets/f470b44f-d47a-43e2-ac89-302b307e29f0" />
+
 ## 名称对照
 
 GitHub 仓库 owner 和 npm 包 scope **不是同一个字符串**，安装时不要混用：
