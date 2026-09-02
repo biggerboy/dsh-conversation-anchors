@@ -1,6 +1,6 @@
 {
   "name": "@biggerboy123/dsh-conversation-anchors",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "description": "Conversation tick rail and thinking-process fold for the DeepSeek Harness web GUI. Codex-style left rail by default; optional DeepSeek right rail in Settings. Click-to-scroll, eager history load, collapsed Think/tool rows.",
   "type": "module",
   "engines": {

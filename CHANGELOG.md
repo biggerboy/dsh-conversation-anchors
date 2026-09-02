@@ -4,26 +4,36 @@
 
 ## [Unreleased]
 
-### 新增
+## [0.1.15] - 2026-09-02
 
-- **全会话大纲对齐 DSH 0.1.2-alpha.3**：检测到 `turnOutline` 时，Codex / DeepSeek 轨合并 Host 大纲（含未加载轮次）；点击未加载刻度调用 `session.loadThrough(seq)` 按需分页并跳转。
+### 修复
 
-### 变更
+- **Codex 悬停卡片**：点击锚点跳转后，再次悬停同一 tick 时鼠标移开轨区，预览卡片会正常消失（不再因 tick 仍持有焦点而残留）。
+- **Codex 第一个 tick 偏短**：合并 `turnOutline` 时若第 1 轮已在 Chat 窗口内，不再误标为 `unloaded`；会话打开过程中也暂不画 outline-only 的短 tick。
+- **DeepSeek 轨垂直居中**：按实际 tick 列高度（而非 300px 上限槽位）在对话可视区内居中，避免轮次少时偏上。
+- **单轮会话隐藏轨**：Codex / DeepSeek 风格下仅 1 轮对话时不显示锚点列表（官方风格不受影响）。
 
-- **思考过程折叠**：检测 DSH 0.1.2+ 官方 Compact（`ui-chat.transcriptView === 'compact'`）或 DOM 中的 `[data-turn-process]` 后，自动跳过插件折叠，避免与官方双重披露；旧版 DSH 或 Normal 对话显示仍使用插件折叠。
-- **chat 数据源**：优先 `uiConversation.target('chat')`，缺失时回退 `session.getSnapshot().chat`；`uiConversation` inject 改为可选，避免旧版 DSH 因缺服务而无法挂载。
-- **历史拉齐**：有 `turnOutline` 或风格为「DSH 官方」时**不再**自动 drain；无大纲的旧版仍走 `loadOlder` 循环。README 按 alpha.3 更新官方 vs 插件对比。
+### 兼容
+
+- 已对照 DSH **0.1.2-alpha.3 / alpha.4** 验证：插件未使用 alpha.4 移除的 `Session.events`，`turnOutline` / `loadThrough` / `uiConversation` 接口无变更。
+
 ## [0.1.14] - 2026-09-01
 
 ### 新增
 
 - 锚点风格第三项 **DSH 官方（右侧）**：隐藏插件自绘轨，改用 DSH 0.1.2+ 内置紧凑回合导航；选 Codex / DeepSeek 时会自动隐藏官方轨，避免双轨重叠。
+- **全会话大纲对齐 DSH 0.1.2-alpha.3+**：检测到 `turnOutline` 时，Codex / DeepSeek 轨合并 Host 大纲（含未加载轮次）；点击未加载刻度调用 `session.loadThrough(seq)` 按需分页并跳转。
+
+### 变更
+
+- **思考过程折叠**：检测 DSH 0.1.2+ 官方 Compact（`ui-chat.transcriptView === 'compact'`）或 DOM 中的 `[data-turn-process]` 后，自动跳过插件折叠，避免与官方双重披露；旧版 DSH 或 Normal 对话显示仍使用插件折叠。
+- **历史拉齐**：有 `turnOutline` 或风格为「DSH 官方」时**不再**自动 drain；无大纲的旧版仍走 `loadOlder` 循环。
 
 ### 修复
 
 - 锚点风格切换后立即生效，不再被 Host 设置回写悄悄改回 `codex`（写入失败或未重启 `dsh web` 时仍保留本地选择）。
 - 从「DSH 官方」切回 Codex / DeepSeek 时插件轨不再卡在 `hidden`（设置页打开时 host 未就绪也会立刻显示并重排）。
-- 插件锚点改从 `uiConversation.target('chat')` 读取（DSH 0.1.2+ 不再把 chat 挂在 SessionSnapshot 上），Codex / DeepSeek 轨可正常出 tick。
+- 插件锚点改从 `uiConversation.target('chat')` 读取（DSH 0.1.2+ 不再把 chat 挂在 SessionSnapshot 上），Codex / DeepSeek 轨可正常出 tick；`uiConversation` inject 改为可选，避免旧版 DSH 因缺服务而无法挂载。
 
 ## [0.1.13] - 2026-08-27
 
