@@ -1,6 +1,6 @@
 {
   "name": "@biggerboy123/dsh-conversation-anchors",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "description": "Conversation tick rail and thinking-process fold for the DeepSeek Harness web GUI. Codex-style left rail by default; optional DeepSeek right rail in Settings. Click-to-scroll, eager history load, collapsed Think/tool rows.",
   "type": "module",
   "engines": {
@@ -17,8 +17,8 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "check": "node scripts/check-bundle-id.mjs",
-    "prepublishOnly": "node scripts/check-bundle-id.mjs"
+    "check": "node test/check-bundle-id.mjs",
+    "prepublishOnly": "node test/check-bundle-id.mjs"
   },
   "files": [
     "lib",
@@ -47,6 +47,16 @@
         "@deepseek-ai/dsh-client-ui-settings"
       ],
       "platform": "web"
+    },
+    "permissions": {
+      "level": "low",
+      "files": "none",
+      "network": "none",
+      "commands": "none",
+      "credentials": [
+        "none"
+      ],
+      "notes": "Host half only resolves peer packages via cwd / running dsh CLI createRequire; no HOME probing, no profile-directory scan, no network or subprocess."
     }
   },
   "peerDependencies": {

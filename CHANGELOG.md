@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+## [0.1.18] - 2026-09-08
+
+### 变更
+
+- **DSH STORE 目录合规**：host 半部分不再用 HOME 环境变量探测 peer，只从当前工作目录、运行中的 `dsh` CLI（`createRequire`）和 `import.meta.url` 解析；声明无 files / network / commands / credentials 权限。发版检查脚本移到 `test/`，避免被商城静态扫描当成运行时源码。
+
 ## [0.1.17] - 2026-09-02
 
 ### 修复
@@ -154,7 +160,8 @@
 - 跟随当前会话快照实时刷新；切换会话即切换锚点列表。
 - 仅 Web GUI（`platform: "web"`），host 半边无操作占位，行为全部在浏览器半边。
 
-[Unreleased]: https://github.com/biggerboy/dsh-conversation-anchors/compare/v0.1.17...HEAD
+[Unreleased]: https://github.com/biggerboy/dsh-conversation-anchors/compare/v0.1.18...HEAD
+[0.1.18]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.18
 [0.1.17]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.17
 [0.1.16]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.16
 [0.1.15]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.15
