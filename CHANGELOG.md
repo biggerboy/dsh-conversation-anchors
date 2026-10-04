@@ -4,6 +4,16 @@
 
 ## [Unreleased]
 
+## [0.1.19] - 2026-10-04
+
+### 兼容
+
+- **适配 DSH 0.2.x**，同时保留对 0.1.x 的兼容：
+  - Host：导出 `Config`（volatile 字段）+ `settings.configure({ auto: false })`（0.2.x）；仍走 `settings.register`（0.1.x）
+  - Client settings：优先 `ctx.configForms.get(ns)`（0.2.x），回退 `ctx.settingsScope.bind`（0.1.x）；静态 inject 不再声明 `settingsScope`（避免 0.2 上永久 pending）
+  - Client 当前会话：0.2.x 的 `sessions.list` 快照不再有 `current`，改为 `byId[].retainedBy.mainView` / 可选 `uiSession` / DOM `data-conversation-session`；`turnOutline` 兼容 `{ turns }` 状态形
+  - peerDeps 去掉已移除的 `dsh-client-runtime`，其余改为 `>=0.1.0-rc.6` 以覆盖 0.1 / 0.2
+
 ## [0.1.18] - 2026-09-08
 
 ### 变更
@@ -160,7 +170,8 @@
 - 跟随当前会话快照实时刷新；切换会话即切换锚点列表。
 - 仅 Web GUI（`platform: "web"`），host 半边无操作占位，行为全部在浏览器半边。
 
-[Unreleased]: https://github.com/biggerboy/dsh-conversation-anchors/compare/v0.1.18...HEAD
+[Unreleased]: https://github.com/biggerboy/dsh-conversation-anchors/compare/v0.1.19...HEAD
+[0.1.19]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.19
 [0.1.18]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.18
 [0.1.17]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.17
 [0.1.16]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.16
