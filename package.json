@@ -1,6 +1,6 @@
 {
   "name": "@biggerboy123/dsh-conversation-anchors",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "description": "Conversation tick rail and thinking-process fold for the DeepSeek Harness web GUI. Codex-style left rail by default; optional DeepSeek right rail in Settings. Click-to-scroll, eager history load, collapsed Think/tool rows.",
   "type": "module",
   "engines": {
@@ -56,6 +56,14 @@
         "none"
       ],
       "notes": "Host half only resolves peer packages via cwd / running dsh CLI createRequire; no HOME probing, no profile-directory scan, no network or subprocess."
+    },
+    "compatibility": {
+      "dsh": ">=0.1.0-rc.6",
+      "dshReleases": {
+        "0.2.0-rc.1": "compatible",
+        "0.2.0-rc.2": "compatible",
+        "0.2.1-alpha.1": "compatible"
+      }
     }
   },
   "peerDependencies": {
