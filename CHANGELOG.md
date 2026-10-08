@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+## [0.1.20] - 2026-10-08
+
+### 兼容
+
+- 在 `package.json` 的 `dsh.compatibility.dshReleases` 中显式声明官方最新三版（`0.2.0-rc.1` / `0.2.0-rc.2` / `0.2.1-alpha.1`）为 `compatible`，解除 DSH STORE 的 latest-three 兼容性暂挂。
+
 ## [0.1.19] - 2026-10-04
 
 ### 兼容
@@ -170,7 +176,8 @@
 - 跟随当前会话快照实时刷新；切换会话即切换锚点列表。
 - 仅 Web GUI（`platform: "web"`），host 半边无操作占位，行为全部在浏览器半边。
 
-[Unreleased]: https://github.com/biggerboy/dsh-conversation-anchors/compare/v0.1.19...HEAD
+[Unreleased]: https://github.com/biggerboy/dsh-conversation-anchors/compare/v0.1.20...HEAD
+[0.1.20]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.20
 [0.1.19]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.19
 [0.1.18]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.18
 [0.1.17]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.17
