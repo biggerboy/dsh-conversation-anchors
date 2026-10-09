@@ -60,7 +60,7 @@ GitHub 仓库 owner 和 npm 包 scope **不是同一个字符串**，安装时�
 
 需要 Node `^22.19 || >=24` 和 `dsh` CLI（`npm i -g @deepseek-ai/dsh@next`）。
 
-### 从 npm 安装（推荐）
+### 从 npm 安装（推荐）-dsh web版
 
 这条命令从 **npm registry**（`https://registry.npmjs.org`）拉包，**需要能访问 npm**，不经过 GitHub。github.com 超时不影响这条路径。
 
@@ -76,7 +76,7 @@ dsh plugin --profile web add @biggerboy123/dsh-conversation-anchors
 
 这是 **良性告警，不是安装失败**。该 peer 由 DSH Web 自己提供，profile 里 hoisted 的 `node_modules` 运行时能解析到。只要命令 **退出码为 0**，就可以继续：重启 `dsh web`，打开任意会话即可在对话区**左侧**看到短横线锚点。
 
-### 从 Git 仓库安装（npm 不通时）
+### 从 Git 仓库安装（npm 不通时）-dsh web版
 
 走 GitHub / git 源，需要能访问 `github.com`（或你自己的镜像）。不要把仓库路径当成 npm 包名去 `add`。
 
@@ -89,6 +89,11 @@ dsh plugin --profile web add github:biggerboy/dsh-conversation-anchors#master
 ```
 
 装完同样需要**重启 `dsh web`**。只刷新浏览器页面不会重新拉插件。
+
+### dsh 客户端版
+安装完客户端，启动，点击左侧【插件】 - 点击【添加插件】 - 选择【npm官方源】 - 输入【@biggerboy123/dsh-conversation-anchors】回车 - 点击【安装】 - 安装成功点击【启用】
+<img width="2880" height="1704" alt="image" src="https://github.com/user-attachments/assets/b0a08c6e-ba5b-4523-8bfd-27c37bb6a74e" />
+
 
 ## 使用
 
