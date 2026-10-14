@@ -4,9 +4,12 @@
 
 ## [Unreleased]
 
+## [0.1.21] - 2026-10-14
+
 ### 修复
 
 - 为锚点样式标记正确的插件归属，避免 DSH 将其归入其他插件并在热重载或停用时误删，导致锚点退化为页面底部的普通按钮。
+- 创建样式节点时先设置 `data-plugin` 再挂入 DOM，降低并发 claim/remove 的窗口。
 
 ## [0.1.20] - 2026-10-08
 
@@ -180,7 +183,8 @@
 - 跟随当前会话快照实时刷新；切换会话即切换锚点列表。
 - 仅 Web GUI（`platform: "web"`），host 半边无操作占位，行为全部在浏览器半边。
 
-[Unreleased]: https://github.com/biggerboy/dsh-conversation-anchors/compare/v0.1.20...HEAD
+[Unreleased]: https://github.com/biggerboy/dsh-conversation-anchors/compare/v0.1.21...HEAD
+[0.1.21]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.21
 [0.1.20]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.20
 [0.1.19]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.19
 [0.1.18]: https://github.com/biggerboy/dsh-conversation-anchors/releases/tag/v0.1.18
