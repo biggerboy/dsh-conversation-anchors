@@ -17,8 +17,9 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "check": "node test/check-bundle-id.mjs",
-    "prepublishOnly": "node test/check-bundle-id.mjs"
+    "check": "node test/check-bundle-id.mjs && npm test",
+    "prepublishOnly": "node test/check-bundle-id.mjs",
+    "test": "node --test test/*.test.mjs"
   },
   "files": [
     "lib",
